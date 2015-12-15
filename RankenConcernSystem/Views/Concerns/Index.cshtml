@@ -1,0 +1,111 @@
+﻿@model IEnumerable<RankenConcernSystem.Models.Concerns>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfMake)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConMakerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GetRelationship)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GetReportingMethod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConMakerPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConMakerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonConMade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameConRecieved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionMade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfActionMaker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResultsOfCon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfResult)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfMake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConMakerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetRelationship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetReportingMethod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConMakerPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConMakerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReasonConMade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameConRecieved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionMade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfActionMaker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResultsOfCon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfResult)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
