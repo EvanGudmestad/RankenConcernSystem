@@ -46,6 +46,8 @@ namespace RankenConcernSystem.Models
         [Required]
         public string ConMakerEmail { get; set; }
 
+
+
         [Display(Name = "Reason")]
         [StringLength(50, MinimumLength = 3)]
         [Required]
@@ -55,7 +57,7 @@ namespace RankenConcernSystem.Models
         [Required]
         public string NameConRecieved { get; set; }
 
-
+        [Display(Name = "Details")]
         [StringLength(60, MinimumLength = 3)]
         public string Details { get; set; }
 
