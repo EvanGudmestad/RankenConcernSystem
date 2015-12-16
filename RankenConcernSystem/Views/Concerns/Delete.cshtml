@@ -1,0 +1,136 @@
+﻿@model RankenConcernSystem.Models.Concerns
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Concerns</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConMakerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConMakerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetRelationship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetRelationship)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetReportingMethod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetReportingMethod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConMakerPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConMakerPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConMakerEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConMakerEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReasonConMade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReasonConMade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameConRecieved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameConRecieved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionMade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionMade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfActionMaker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfActionMaker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResultsOfCon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResultsOfCon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfResult)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
