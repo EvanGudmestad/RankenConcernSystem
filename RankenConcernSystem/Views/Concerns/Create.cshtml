@@ -90,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Details, 10, 40, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -98,7 +98,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ActionMade, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ActionMade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.ActionMade, 5, 40, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ActionMade, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -114,7 +114,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ResultsOfCon, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ResultsOfCon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.ResultsOfCon, 5, 40, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ResultsOfCon, "", new { @class = "text-danger" })
             </div>
         </div>
