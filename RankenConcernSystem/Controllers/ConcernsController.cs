@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RankenConcernSystem.Models;
+using System.Net.Mail;
 
 namespace RankenConcernSystem.Controllers
 {
@@ -52,7 +53,9 @@ namespace RankenConcernSystem.Controllers
             {
                 db.Concerns.Add(concerns);
                 db.SaveChanges();
+                SendNotification(concerns, false);
                 return RedirectToAction("Index");
+                
             }
 
             return View(concerns);
@@ -70,6 +73,7 @@ namespace RankenConcernSystem.Controllers
             {
                 return HttpNotFound();
             }
+            
             return View(concerns);
         }
 
@@ -84,6 +88,7 @@ namespace RankenConcernSystem.Controllers
             {
                 db.Entry(concerns).State = EntityState.Modified;
                 db.SaveChanges();
+                SendNotification(concerns, true);
                 return RedirectToAction("Index");
             }
             return View(concerns);
@@ -123,5 +128,46 @@ namespace RankenConcernSystem.Controllers
             }
             base.Dispose(disposing);
         }
-    }
-}
+        public void SendNotification(Concerns concern, bool exists)
+        {
+            if (exists == true)
+            {
+                MailMessage mailMsg = new MailMessage();
+                mailMsg.From = new MailAddress(concern.ConMakerEmail);
+                mailMsg.To.Add("eagudmestad@ranken.edu");              
+                mailMsg.Subject = "Updated Concern";
+                mailMsg.IsBodyHtml = true;
+                mailMsg.BodyEncoding = System.Text.Encoding.UTF8;
+                mailMsg.Body = "Date: " + concern.DateOfMake + " " + "<br />" + "Name of concern maker: " + concern.ConMakerName + " " + "<br />" + "Relationship: " + concern.GetRelationship + "<br />" + "Concern made via: " + concern.GetReportingMethod + " " + "<br />" + "Student ID: " + concern.StudentID + " " + "<br />" + "Phone: " + concern.ConMakerPhone + "<br />" + "Email adress: " + concern.ConMakerEmail + " " + "<br />" + "Reason of concern: " + concern.ReasonConMade + " " + "<br />" + "Reported to: " + concern.NameConRecieved + "<br />" + "Details: " + concern.Details + " " + "<br />" + "Action: " + concern.ActionMade + " " + "<br />" + "Action made by: " + concern.NameOfActionMaker + "<br />" + "Results: " + concern.ResultsOfCon + " " + "<br />" + "Result date: " + concern.DateOfResult;
+                mailMsg.Priority = MailPriority.Normal;
+                //Smtp configuration
+                SmtpClient SmtpClient = new SmtpClient();
+                SmtpClient.UseDefaultCredentials = false;
+                SmtpClient.Credentials = new NetworkCredential("eagudmesad@ranken.edu", "Hash29Brown", "mail.ranken.edu");
+                SmtpClient.Host = "mail.ranken.edu";
+                SmtpClient.EnableSsl = false;
+                SmtpClient.Send(mailMsg);
+            }
+            else
+            {
+                MailMessage mailMsg = new MailMessage();
+                mailMsg.From = new MailAddress(concern.ConMakerEmail);
+                mailMsg.To.Add("eagudmestad@ranken.edu");
+                mailMsg.Subject = "New Concern";
+                mailMsg.IsBodyHtml = true;
+                mailMsg.BodyEncoding = System.Text.Encoding.UTF8;
+                mailMsg.Body = "Date: " + concern.DateOfMake + " " + "<br />" + "Name of concern maker: " + concern.ConMakerName + " " + "<br />" + "Relationship: " + concern.GetRelationship + "<br />" + "Concern made via: " + concern.GetReportingMethod + " " + "<br />" + "Student ID: " + concern.StudentID + " " + "<br />" + "Phone: " + concern.ConMakerPhone + "<br />" + "Email adress: " + concern.ConMakerEmail + " " + "<br />" + "Reason of concern: " + concern.ReasonConMade + " " + "<br />" + "Reported to: " + concern.NameConRecieved + "<br />" + "Details: " + concern.Details + " " + "<br />" + "Action: " + concern.ActionMade + " " + "<br />" + "Action made by: " + concern.NameOfActionMaker + "<br />" + "Results: " + concern.ResultsOfCon + " " + "<br />" + "Result date: " + concern.DateOfResult;
+                mailMsg.Priority = MailPriority.Normal;
+                //Smtp configuration
+                SmtpClient SmtpClient = new SmtpClient();
+                SmtpClient.UseDefaultCredentials = false;
+                SmtpClient.Credentials = new NetworkCredential("eagudmesad@ranken.edu", "Hash29Brown", "mail.ranken.edu");               
+                SmtpClient.Host = "mail.ranken.edu";
+                SmtpClient.EnableSsl = false;
+                SmtpClient.Send(mailMsg);
+            }
+         
+        }
+     }
+ }
+
